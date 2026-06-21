@@ -40,6 +40,7 @@ public class CategoryServiceImpl implements CategoryService{
         if(categories.isEmpty()){   // OR check if categoryRepository.count == 0
             throw new APIException("No category created yet !!!");
         }
+
         List<CategoryDTO> categoryDTOs = categories.stream()
                 .map((category) -> modelMapper.map(category, CategoryDTO.class))
                 .toList();
@@ -67,7 +68,7 @@ public class CategoryServiceImpl implements CategoryService{
         }
 
         Category savedCategory = categoryRepository.save(category);
-        CategoryDTO savedCategoryDTO = modelMapper.map(category, CategoryDTO.class);
+        CategoryDTO savedCategoryDTO = modelMapper.map(savedCategory, CategoryDTO.class);
         return savedCategoryDTO;
     }
 

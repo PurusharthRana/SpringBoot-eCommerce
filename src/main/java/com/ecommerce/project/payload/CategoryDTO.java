@@ -1,5 +1,7 @@
 package com.ecommerce.project.payload;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +12,8 @@ import lombok.NoArgsConstructor;
 public class CategoryDTO {
 
     private Long categoryId;
+    @NotBlank   // Use @Valid in controller layer to get a user-friendly error message and code
+    @Size(min = 4, message = "Category name must contain at least 4 characters!")
     private String categoryName;
 
 }

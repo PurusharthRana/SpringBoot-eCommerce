@@ -1,7 +1,6 @@
 package com.ecommerce.project.controller;
 
 import com.ecommerce.project.config.AppConstants;
-import com.ecommerce.project.model.Category;
 import com.ecommerce.project.payload.CategoryDTO;
 import com.ecommerce.project.payload.CategoryResponse;
 import com.ecommerce.project.service.CategoryService;
@@ -20,7 +19,6 @@ public class CategoryController {
 
     /* Service dependency is being injected into the controller via @Service annotation.
     This is Constructor Injection, we can also use field injection via @Autowired annotation */
-
 //    public CategoryController(CategoryService categoryService) {
 //        this.categoryService = categoryService;
 //    }
