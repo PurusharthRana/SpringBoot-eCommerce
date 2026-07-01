@@ -50,7 +50,6 @@ public class JwtUtils {
     public String getJwtFromCookies(HttpServletRequest request){
         Cookie cookie = WebUtils.getCookie(request, jwtCookie);
         if(cookie != null){
-            System.out.println("COOKIE: " + cookie.getValue());
             return cookie.getValue();
         }
         else{
@@ -65,6 +64,13 @@ public class JwtUtils {
                 .path("/api")
                 .maxAge(24 * 60 * 60)   // In seconds
                 .httpOnly(false)
+                .build();
+        return cookie;
+    }
+
+    public ResponseCookie getCleanJwtCookie(){
+        ResponseCookie cookie = ResponseCookie.from(jwtCookie, null)
+                .path("/api")
                 .build();
         return cookie;
     }
